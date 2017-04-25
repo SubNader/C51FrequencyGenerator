@@ -1,0 +1,14 @@
+# C51FrequencyGenerator
+C51 Variable Duty Cycle Frequency Generator
+
+
+## Operating details
+- **Duty Cycle input format**: Packed BCD
+
+- **Duty Cycle input port**: Port 1
+
+- **Output pin**: P2.0
+
+- **Switch pin**: P2.7
+
+- **Error indication pin**: P2.6
