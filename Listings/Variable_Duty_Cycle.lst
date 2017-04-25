@@ -1,0 +1,148 @@
+C51 COMPILER V9.56.0.0   VARIABLE_DUTY_CYCLE                                               04/26/2017 00:38:26 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE VARIABLE_DUTY_CYCLE
+OBJECT MODULE PLACED IN .\Objects\Variable_Duty_Cycle.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Variable_Duty_Cycle.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(
+                    -.\Listings\Variable_Duty_Cycle.lst) TABS(2) OBJECT(.\Objects\Variable_Duty_Cycle.obj)
+
+line level    source
+
+   1          /*
+   2          
+   3            C51 Variable Duty Cycle Frequency Generator
+   4            GitHub: https://github.com/SubNader/C51FrequencyGenerator
+   5            Credits: Nader Alsharkawy (3001) and Mohamed Amgad (3009) | Group 36
+   6          
+   7          */
+   8          
+   9          #include <reg51.h>
+  10          #include <stdlib.h>
+  11          
+  12          // Input port definition
+  13          #define input_port P1
+  14          
+  15          // Ouput pins definition
+  16          sbit output_bit = P2^0;
+  17          sbit output_switch = P2^7;
+  18          sbit error = P2^6;
+  19          
+  20          // Delay function prototype
+  21          void delay(unsigned char high, unsigned char low);
+  22          
+  23          // Variables definition - chars for 8 bits / floats for numerical values
+  24          unsigned char input,updated_input,input_high,input_low,
+  25                positive_high,positive_low,
+  26                negative_high,negative_low;
+  27          float internal_frequency, duty_cycle_percentage, total_cycles_count,
+  28                positive_cycles_count, positive_cycles_start_value,
+  29                negative_cycles_count, negative_cycles_start_value,
+  30                max_cycles = 65536 ;
+  31          
+  32          void main(void){
+  33   1        // Initialize input port
+  34   1        input_port = 0xFF;
+  35   1        
+  36   1        // Enable timer 0 in mode 1 - 0000 0001
+  37   1        TMOD = 0x01;
+  38   1        
+  39   1        // Initialize output to zero to start in high (flipped in a later stage)
+  40   1        output_bit = 0;
+  41   1        
+  42   1        // Compute the internal MC frequency - assuming a 22.1184MHz crystal
+  43   1        internal_frequency = 22118400/12.0;
+  44   1        
+  45   1        // Compute the total number of cycles (full period)
+  46   1        total_cycles_count = (int)((1/500.0)/(1/internal_frequency));
+  47   1        
+  48   1          
+  49   1        while (1) {
+  50   2          //Fetch and handle low and high nibbles from input port
+  51   2          input_high = (input_port & 0xF0) >> 4;
+  52   2          input_low = input_port & 0x0F;
+  53   2          // Validate and handle invalid input
+  54   2          if (!(input_high > 0x09 || input_low > 0x09)){
+C51 COMPILER V9.56.0.0   VARIABLE_DUTY_CYCLE                                               04/26/2017 00:38:26 PAGE 2   
+
+  55   3            // Set error pin to low 
+  56   3            error = 0;
+  57   3            // Fetch and handle low and high nibbles from input port
+  58   3            input_high = (input_port & 0xF0) >> 4;
+  59   3            input_low = input_port & 0x0F;
+  60   3            
+  61   3            // Compute duty cycle
+  62   3            duty_cycle_percentage = input_high*10+input_low;
+  63   3        
+  64   3            // Compute the positive and negative cycles and the corresponding timer start values based on the duty 
+             -cycle
+  65   3            positive_cycles_count = (int)((duty_cycle_percentage/100.0)*total_cycles_count);
+  66   3            negative_cycles_count = total_cycles_count - positive_cycles_count;
+  67   3            positive_cycles_start_value = max_cycles - positive_cycles_count;
+  68   3            negative_cycles_start_value = max_cycles - negative_cycles_count;
+  69   3        
+  70   3            // Compute low and high byte values from computed start values
+  71   3            positive_low = (int)positive_cycles_start_value&0x00FF;
+  72   3            positive_high = ((int)positive_cycles_start_value&0xFF00) >> 8;
+  73   3            negative_low = (int)negative_cycles_start_value&0x00FF;
+  74   3            negative_high = ((int)negative_cycles_start_value&0xFF00) >> 8;
+  75   3        
+  76   3            // Handle runtime input update
+  77   3            input = updated_input = input_port; 
+  78   3            
+  79   3            // Ouput loop
+  80   3            while (input==updated_input && output_switch){
+  81   4              
+  82   4              // Positive portion
+  83   4              output_bit = ~output_bit;
+  84   4              delay(positive_high,positive_low);
+  85   4              
+  86   4              // Negative portion
+  87   4              output_bit = ~output_bit;
+  88   4              delay(negative_high,negative_low);
+  89   4          
+  90   4              // Fetch input port state to check if altered
+  91   4              updated_input = input_port;
+  92   4            }
+  93   3          }
+  94   2          else{
+  95   3              // Stop output
+  96   3              output_bit = 0;
+  97   3              // Error
+  98   3              error = 1;
+  99   3          }
+ 100   2        }
+ 101   1      }
+ 102          
+ 103          // Delay function
+ 104          void delay(unsigned char high, unsigned char low){
+ 105   1        
+ 106   1        // Set timer's start value
+ 107   1        TH0 = high;
+ 108   1        TL0 = low;
+ 109   1        
+ 110   1        // Start timer
+ 111   1        TR0 = 1;
+ 112   1        
+ 113   1        // Loop till rollover
+ 114   1        while(TF0 == 0);
+ 115   1        
+C51 COMPILER V9.56.0.0   VARIABLE_DUTY_CYCLE                                               04/26/2017 00:38:26 PAGE 3   
+
+ 116   1        // Clear timer run (enable) and flag
+ 117   1        TR0 = 0;
+ 118   1        TF0 = 0;
+ 119   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    373    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     40    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

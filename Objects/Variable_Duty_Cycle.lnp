@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Variable_Duty_Cycle.obj" 
+TO ".\Objects\Variable_Duty_Cycle" 
+PRINT(".\Listings\Variable_Duty_Cycle.m51") RAMSIZE(256) 
