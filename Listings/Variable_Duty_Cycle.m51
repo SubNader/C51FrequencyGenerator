@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        04/26/2017  00:38:26  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/26/2017  03:54:50  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -37,10 +37,10 @@ LINK MAP OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
             CODE    0800H     036BH     UNIT         ?C?LIB_CODE
-            CODE    0B6BH     0167H     UNIT         ?PR?MAIN?VARIABLE_DUTY_CYCLE
-            CODE    0CD2H     008CH     UNIT         ?C_C51STARTUP
-            CODE    0D5EH     000EH     UNIT         ?PR?_DELAY?VARIABLE_DUTY_CYCLE
-            CODE    0D6CH     0007H     UNIT         ?C_INITSEG
+            CODE    0B6BH     016BH     UNIT         ?PR?MAIN?VARIABLE_DUTY_CYCLE
+            CODE    0CD6H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0D62H     000EH     UNIT         ?PR?_DELAY?VARIABLE_DUTY_CYCLE
+            CODE    0D70H     0007H     UNIT         ?C_INITSEG
 
 
 
@@ -59,7 +59,7 @@ SEGMENT
 
 
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  00:38:26  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  03:54:50  PAGE 2
 
 
 SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
@@ -68,7 +68,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:0CD2H         SEGMENT       ?C_C51STARTUP
+  C:0CD6H         SEGMENT       ?C_C51STARTUP
   I:0030H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
@@ -78,7 +78,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0CD5H         SYMBOL        IDATALOOP
+  C:0CD9H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -87,18 +87,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0CD2H         SYMBOL        STARTUP1
+  C:0CD6H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0CD2H         LINE#         133
-  C:0CD4H         LINE#         134
-  C:0CD5H         LINE#         135
-  C:0CD6H         LINE#         136
-  C:0CD8H         LINE#         185
-  C:0CDBH         LINE#         196
+  C:0CD6H         LINE#         133
+  C:0CD8H         LINE#         134
+  C:0CD9H         LINE#         135
+  C:0CDAH         LINE#         136
+  C:0CDCH         LINE#         185
+  C:0CDFH         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        VARIABLE_DUTY_CYCLE
@@ -107,7 +107,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:0009H         PUBLIC        negative_low
-  C:0D5EH         PUBLIC        _delay
+  C:0D62H         PUBLIC        _delay
   D:000AH         PUBLIC        total_cycles_count
   D:000EH         PUBLIC        internal_frequency
   C:0B6BH         PUBLIC        main
@@ -118,8 +118,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   D:0017H         PUBLIC        input
   D:0089H         PUBLIC        TMOD
   D:0018H         PUBLIC        input_high
-  D:0019H         PUBLIC        duty_cycle_percentage
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  00:38:26  PAGE 3
+  D:0019H         PUBLIC        duty_cycle
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  03:54:50  PAGE 3
 
 
   B:0088H.5       PUBLIC        TF0
@@ -139,53 +139,59 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   C:0B6BH         LINE#         34
   C:0B6EH         LINE#         37
   C:0B71H         LINE#         40
-  C:0B73H         LINE#         43
-  C:0B7EH         LINE#         46
-  C:0BB5H         LINE#         49
-  C:0BB5H         LINE#         51
-  C:0BBEH         LINE#         52
-  C:0BC4H         LINE#         54
-  C:0BD7H         LINE#         56
-  C:0BD9H         LINE#         58
-  C:0BE3H         LINE#         59
-  C:0BE9H         LINE#         62
-  C:0C04H         LINE#         65
-  C:0C2CH         LINE#         66
-  C:0C47H         LINE#         67
-  C:0C62H         LINE#         68
-  C:0C7DH         LINE#         71
-  C:0C8BH         LINE#         72
-  C:0C8EH         LINE#         73
-  C:0C9CH         LINE#         74
-  C:0C9FH         LINE#         77
-  C:0CA5H         LINE#         80
-  C:0CB4H         LINE#         83
-  C:0CB6H         LINE#         84
-  C:0CBDH         LINE#         87
-  C:0CBFH         LINE#         88
-  C:0CC6H         LINE#         91
-  C:0CC9H         LINE#         92
-  C:0CCBH         LINE#         93
-  C:0CCBH         LINE#         94
-  C:0CCBH         LINE#         96
-  C:0CCDH         LINE#         98
-  C:0CCFH         LINE#         99
-  C:0CCFH         LINE#         100
+  C:0B73H         LINE#         41
+  C:0B75H         LINE#         42
+  C:0B77H         LINE#         45
+  C:0B82H         LINE#         48
+  C:0BAEH         LINE#         51
+  C:0BAEH         LINE#         53
+  C:0BB7H         LINE#         54
+  C:0BBDH         LINE#         56
+  C:0BC3H         LINE#         59
+  C:0BD6H         LINE#         60
+  C:0BD8H         LINE#         62
+  C:0BE2H         LINE#         63
+  C:0BE8H         LINE#         66
+  C:0C03H         LINE#         69
+  C:0C2BH         LINE#         70
+  C:0C46H         LINE#         71
+  C:0C61H         LINE#         72
+  C:0C7CH         LINE#         75
+  C:0C8AH         LINE#         76
+  C:0C8DH         LINE#         77
+  C:0C9BH         LINE#         78
+  C:0C9EH         LINE#         81
+  C:0CA4H         LINE#         84
+  C:0CB3H         LINE#         87
+  C:0CB5H         LINE#         88
+  C:0CBCH         LINE#         91
+  C:0CBEH         LINE#         92
+  C:0CC5H         LINE#         95
+  C:0CC8H         LINE#         96
+  C:0CCAH         LINE#         97
+  C:0CCAH         LINE#         98
+  C:0CCAH         LINE#         100
+  C:0CCCH         LINE#         103
+  C:0CCEH         LINE#         104
+  C:0CCEH         LINE#         105
+  C:0CD1H         LINE#         107
+  C:0CD3H         LINE#         108
+  C:0CD3H         LINE#         109
   -------         ENDPROC       MAIN
   -------         PROC          _DELAY
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  03:54:50  PAGE 4
+
+
   D:0007H         SYMBOL        high
   D:0005H         SYMBOL        low
-  C:0D5EH         LINE#         104
-  C:0D5EH         LINE#         107
-  C:0D60H         LINE#         108
-  C:0D62H         LINE#         111
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  00:38:26  PAGE 4
-
-
-  C:0D64H         LINE#         114
-  C:0D67H         LINE#         117
-  C:0D69H         LINE#         118
-  C:0D6BH         LINE#         119
+  C:0D62H         LINE#         113
+  C:0D62H         LINE#         116
+  C:0D64H         LINE#         117
+  C:0D66H         LINE#         120
+  C:0D68H         LINE#         123
+  C:0D6BH         LINE#         126
+  C:0D6DH         LINE#         127
+  C:0D6FH         LINE#         128
   -------         ENDPROC       _DELAY
   -------         ENDMOD        VARIABLE_DUTY_CYCLE
 
@@ -217,8 +223,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   -------         ENDMOD        ?C?LNEG
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 018AH BYTE (19%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 018EH BYTE (19%) *
 ******************************************************************************
 
-Program Size: data=49.0 xdata=0 code=1398
+Program Size: data=49.0 xdata=0 code=1402
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
