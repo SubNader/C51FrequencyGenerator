@@ -1,6 +1,10 @@
 # C51FrequencyGenerator
 C51 Variable Duty Cycle Frequency Generator
 
+## Project details
+- **Module**: AT89C51ED2
+- **Crystal Frequency**: 22.1184MHz
+- **Signal Frequency**: 500Hz
 
 ## Operating details
 - **Duty Cycle input format**: Packed BCD
