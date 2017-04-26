@@ -9,8 +9,8 @@
 #include <at89c51xd2.h> 
 #include <stdio.h>
 
-  // Input port definition
-  #define input_port P1
+// Input port definition
+#define input_port P1
 
 // Ouput pins definition
 sbit output_bit = P2 ^ 0;
