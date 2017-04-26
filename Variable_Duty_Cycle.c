@@ -6,8 +6,8 @@
 
 */
 
-#
-include < at89c51xd2.h > #include < stdio.h >
+#include <at89c51xd2.h> 
+#include <stdio.h>
 
   // Input port definition
   #define input_port P1

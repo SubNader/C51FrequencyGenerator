@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        04/26/2017  03:54:50  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/26/2017  04:10:11  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -59,7 +59,7 @@ SEGMENT
 
 
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  03:54:50  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  04:10:11  PAGE 2
 
 
 SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   D:0089H         PUBLIC        TMOD
   D:0018H         PUBLIC        input_high
   D:0019H         PUBLIC        duty_cycle
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  03:54:50  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  04:10:11  PAGE 3
 
 
   B:0088H.5       PUBLIC        TF0
@@ -143,55 +143,54 @@ SYMBOL TABLE OF MODULE:  .\Objects\Variable_Duty_Cycle (?C_STARTUP)
   C:0B75H         LINE#         42
   C:0B77H         LINE#         45
   C:0B82H         LINE#         48
-  C:0BAEH         LINE#         51
-  C:0BAEH         LINE#         53
-  C:0BB7H         LINE#         54
-  C:0BBDH         LINE#         56
-  C:0BC3H         LINE#         59
-  C:0BD6H         LINE#         60
-  C:0BD8H         LINE#         62
-  C:0BE2H         LINE#         63
-  C:0BE8H         LINE#         66
-  C:0C03H         LINE#         69
-  C:0C2BH         LINE#         70
-  C:0C46H         LINE#         71
-  C:0C61H         LINE#         72
-  C:0C7CH         LINE#         75
-  C:0C8AH         LINE#         76
-  C:0C8DH         LINE#         77
-  C:0C9BH         LINE#         78
-  C:0C9EH         LINE#         81
-  C:0CA4H         LINE#         84
-  C:0CB3H         LINE#         87
-  C:0CB5H         LINE#         88
-  C:0CBCH         LINE#         91
-  C:0CBEH         LINE#         92
-  C:0CC5H         LINE#         95
-  C:0CC8H         LINE#         96
-  C:0CCAH         LINE#         97
+  C:0BAEH         LINE#         50
+  C:0BAEH         LINE#         52
+  C:0BB7H         LINE#         53
+  C:0BBDH         LINE#         55
+  C:0BC3H         LINE#         58
+  C:0BD6H         LINE#         59
+  C:0BD8H         LINE#         61
+  C:0BE2H         LINE#         62
+  C:0BE8H         LINE#         65
+  C:0C03H         LINE#         68
+  C:0C2BH         LINE#         69
+  C:0C46H         LINE#         70
+  C:0C61H         LINE#         71
+  C:0C7CH         LINE#         74
+  C:0C8AH         LINE#         75
+  C:0C8DH         LINE#         76
+  C:0C9BH         LINE#         77
+  C:0C9EH         LINE#         80
+  C:0CA4H         LINE#         83
+  C:0CB3H         LINE#         86
+  C:0CB5H         LINE#         87
+  C:0CBCH         LINE#         90
+  C:0CBEH         LINE#         91
+  C:0CC5H         LINE#         94
+  C:0CC8H         LINE#         95
+  C:0CCAH         LINE#         96
   C:0CCAH         LINE#         98
-  C:0CCAH         LINE#         100
-  C:0CCCH         LINE#         103
-  C:0CCEH         LINE#         104
-  C:0CCEH         LINE#         105
-  C:0CD1H         LINE#         107
-  C:0CD3H         LINE#         108
-  C:0CD3H         LINE#         109
+  C:0CCCH         LINE#         101
+  C:0CCEH         LINE#         102
+  C:0CCEH         LINE#         103
+  C:0CD1H         LINE#         105
+  C:0CD3H         LINE#         106
+  C:0CD3H         LINE#         107
   -------         ENDPROC       MAIN
   -------         PROC          _DELAY
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  03:54:50  PAGE 4
-
-
   D:0007H         SYMBOL        high
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2017  04:10:11  PAGE 4
+
+
   D:0005H         SYMBOL        low
-  C:0D62H         LINE#         113
-  C:0D62H         LINE#         116
-  C:0D64H         LINE#         117
-  C:0D66H         LINE#         120
-  C:0D68H         LINE#         123
-  C:0D6BH         LINE#         126
-  C:0D6DH         LINE#         127
-  C:0D6FH         LINE#         128
+  C:0D62H         LINE#         111
+  C:0D62H         LINE#         114
+  C:0D64H         LINE#         115
+  C:0D66H         LINE#         118
+  C:0D68H         LINE#         121
+  C:0D6BH         LINE#         124
+  C:0D6DH         LINE#         125
+  C:0D6FH         LINE#         126
   -------         ENDPROC       _DELAY
   -------         ENDMOD        VARIABLE_DUTY_CYCLE
 
